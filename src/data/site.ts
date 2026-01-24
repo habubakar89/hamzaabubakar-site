@@ -124,7 +124,7 @@ export const siteData: SiteData = {
     name: "Hamza Abubakar Kheruwala",
     role: "Software Engineer",
     tagline:
-      "I build intelligent systems that detect fraud, scale data pipelines, and leverage GenAI to solve real-world problems.",
+      "I build systems that scale—and still behave on a Monday morning.",
   },
 
   nav: {
