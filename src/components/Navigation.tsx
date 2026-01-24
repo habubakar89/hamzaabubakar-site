@@ -48,15 +48,15 @@ export function Navigation({ items }: NavigationProps) {
                 <span
                   className={`nav-indicator mr-4 h-px transition-all duration-300 ${
                     isActive
-                      ? "w-16 bg-slate-lightest"
-                      : "w-8 bg-slate group-hover:w-16 group-hover:bg-slate-lightest group-focus-visible:w-16 group-focus-visible:bg-slate-lightest"
+                      ? "w-16 bg-green"
+                      : "w-8 bg-slate group-hover:w-12 group-hover:bg-slate-lightest group-focus-visible:w-12 group-focus-visible:bg-slate-lightest"
                   }`}
                 />
                 <span
-                  className={`nav-text text-xs font-bold uppercase tracking-widest transition-all duration-300 ${
+                  className={`nav-text font-bold uppercase tracking-widest transition-all duration-300 ${
                     isActive
-                      ? "text-slate-lightest"
-                      : "text-slate group-hover:text-slate-lightest group-focus-visible:text-slate-lightest"
+                      ? "text-sm text-slate-lightest"
+                      : "text-xs text-slate group-hover:text-slate-lightest group-focus-visible:text-slate-lightest"
                   }`}
                 >
                   {item.label}
