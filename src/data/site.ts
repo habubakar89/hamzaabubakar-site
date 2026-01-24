@@ -104,7 +104,7 @@ export const siteData: SiteData = {
     siteName: "Hamza Abubakar Kheruwala",
     title: "Hamza Abubakar Kheruwala - Software Engineer",
     description:
-      "Software Engineer at Morgan Stanley specializing in GenAI, real-time fraud detection, and scalable data systems. AWS ML Certified with 270+ research citations.",
+      "Software Engineer at Morgan Stanley specializing in GenAI, real-time fraud detection, and scalable data systems. AWS ML Certified researcher.",
     ogImage: "/og.png",
     url: "https://www.hamzaabubakar.com",
   },
@@ -138,7 +138,7 @@ export const siteData: SiteData = {
   about: {
     paragraphs: [
       "I'm a software engineer at Morgan Stanley building real-time fraud detection systems and scalable data platforms. My work spans GenAI applications, behavioral analytics, and high-throughput streaming architectures.",
-      "I specialize in RAG systems, LLM evaluation, and agent orchestration — with a focus on reliability, guardrails, and production-grade AI. I'm AWS Certified in Machine Learning and have published research with 270+ citations in NLP and text mining.",
+      "I specialize in RAG systems, LLM evaluation, and agent orchestration — with a focus on reliability, guardrails, and production-grade AI. I'm AWS Certified in Machine Learning and have published peer-reviewed research in NLP and text mining.",
       "Previously, I've built gesture recognition frameworks, distributed voting systems, and ML-driven content platforms. I hold an M.S. in Computer Science from University at Buffalo and a B.Tech from Nirma University.",
     ],
   },
@@ -153,12 +153,12 @@ export const siteData: SiteData = {
         company: "Morgan Stanley",
         companyHref: "https://www.morganstanley.com",
         summary:
-          "Building real-time fraud detection and behavioral analytics systems processing 300K+ daily events with patent-pending technology.",
+          "Leading development of real-time fraud detection and behavioral analytics systems with patent-pending technology.",
         bullets: [
-          "Invented a holistic, real-time behavior analysis engine (patent pending) to identify and contextualize fraud across platforms.",
-          "Built Kafka + Apache Flink pipeline with ~200ms latency for scalable risk evaluation and fraud signal processing.",
-          "Achieved ~70% fraud reduction in ATO & synthetic identities using RAGs to surface behavioral context & historical risk signals.",
-          "Architected scalable savings platform for high-value client profiling with 99.99% uptime, unlocking $500M+ AUM potential.",
+          "Designed and built a holistic behavior analysis engine that correlates user activity across platforms to identify and contextualize fraudulent patterns in real-time.",
+          "Architected streaming pipelines using Kafka and Apache Flink for low-latency risk evaluation and fraud signal processing at scale.",
+          "Leveraged RAG systems to surface historical risk signals and behavioral context, enabling faster triage and more accurate fraud classification.",
+          "Built a scalable savings platform for high-value client profiling using Terraform-based infrastructure and targeted data orchestration.",
         ],
         tags: [
           "Kafka",
@@ -179,9 +179,9 @@ export const siteData: SiteData = {
         summary:
           "Automated legacy code modernization using RAG-enhanced LLMs and built real-time data reporting infrastructure.",
         bullets: [
-          "Automated modernization of 50M+ lines of legacy code using RAG-enhanced LLMs with ~95% accuracy across 450+ programs.",
-          "Engineered validation pipelines with AWS Lambda & Aurora, cutting validation time by 87% and saving 129 person-years.",
-          "Delivered real-time reporting via AWS Kinesis, cutting data latency by 95% and unlocking $10M+ in operational value.",
+          "Developed an automated code translation system using RAG-enhanced LLMs to modernize legacy codebases, eliminating manual translation efforts across hundreds of programs.",
+          "Engineered validation pipelines with AWS Lambda for orchestration and Aurora for state tracking, dramatically accelerating the modernization workflow.",
+          "Delivered real-time data reporting via AWS Kinesis, enabling leadership to make faster, data-driven decisions.",
         ],
         tags: [
           "RAG",
@@ -200,10 +200,10 @@ export const siteData: SiteData = {
         company: "Hult Prize Foundation",
         companyHref: "https://www.hultprize.org",
         summary:
-          "Built distributed systems for global competitions supporting 100K+ attendees and 10K+ concurrent users.",
+          "Built distributed systems powering global social entrepreneurship competitions with tens of thousands of participants.",
         bullets: [
-          "Engineered distributed, fault-tolerant voting system with 99.7% success rate under high concurrency.",
-          "Optimized concurrent processing for 10,000+ active users, reducing response latency by 40% during peak load.",
+          "Engineered a distributed, fault-tolerant voting system designed to handle real-time user surges during live competition events.",
+          "Optimized concurrent request processing and streamlined backend workflows to support smooth operations during peak load periods.",
         ],
         tags: ["Distributed Systems", "Concurrency", "Node.js", "PostgreSQL"],
       },
@@ -214,10 +214,10 @@ export const siteData: SiteData = {
         company: "IoTIoT.in",
         companyHref: "https://iotiot.in",
         summary:
-          "Built real-time gesture recognition framework with ML-driven motion tracking, saving ~$100K annually.",
+          "Built a real-time, device-agnostic gesture recognition framework using ML-driven motion tracking and signal processing.",
         bullets: [
-          "Improved input reliability by 45% through advanced motion tracking and signal processing.",
-          "Engineered parallelized model training, cutting latency by 35% and achieving 90%+ accuracy.",
+          "Developed advanced motion tracking and signal processing algorithms to improve input reliability across diverse hardware.",
+          "Engineered parallelized model training pipelines to reduce latency while maintaining high accuracy for gesture classification.",
         ],
         tags: ["Machine Learning", "Signal Processing", "Python", "TensorFlow"],
       },
@@ -228,10 +228,10 @@ export const siteData: SiteData = {
         company: "MediaPro Innovations",
         companyHref: "https://mediapro.in",
         summary:
-          "Applied ML-driven content filtering and backend optimization for 50,000+ active users.",
+          "Applied user behavior analysis and ML-driven content filtering to improve engagement on an ed-tech platform.",
         bullets: [
-          "Drove 20% increase in user retention through user behavior analysis and ML-driven content filtering.",
-          "Improved backend efficiency through caching and indexing, achieving 25% higher learner engagement.",
+          "Implemented ML-driven content filtering based on user behavior patterns to surface more relevant learning materials.",
+          "Improved backend efficiency through strategic caching and database indexing, supporting a growing active user base with fewer defects.",
         ],
         tags: ["Python", "Machine Learning", "Backend", "Caching"],
       },
@@ -246,7 +246,7 @@ export const siteData: SiteData = {
         name: "Citation-Grounded Knowledge Platform",
         href: "https://github.com/habubakar89",
         description:
-          "Built a citation-first Q&A system using multi-stage retrieval and reranking with strict answer gating. Achieved >95% citation coverage and ~70% reduction in unsupported claims.",
+          "A citation-first Q&A system using multi-stage retrieval and reranking with strict answer gating — if there's no source, there's no answer. Deployed on AWS with control/data plane separation for compliance-ready audit trails.",
         tags: ["RAG", "LangGraph", "AWS Bedrock", "Lambda", "Step Functions"],
       },
       {
@@ -254,7 +254,7 @@ export const siteData: SiteData = {
         name: "Real-Time Fraud Detection Engine",
         href: "https://www.morganstanley.com",
         description:
-          "Patent-pending behavioral analysis system processing 300K+ daily events with ~200ms latency using Kafka and Apache Flink for real-time risk evaluation.",
+          "Patent-pending behavioral analysis system that correlates activity across platforms to identify fraud patterns. Built with Kafka and Apache Flink for low-latency streaming and real-time risk evaluation.",
         tags: ["Kafka", "Apache Flink", "RAG", "Fraud Detection", "Python"],
       },
       {
@@ -262,7 +262,7 @@ export const siteData: SiteData = {
         name: "Legacy Code Modernization Pipeline",
         href: "https://www.morganstanley.com",
         description:
-          "Automated translation of 50M+ lines of legacy code using RAG-enhanced LLMs with ~95% accuracy, saving 129 person-years of manual effort.",
+          "An automated code translation system using RAG-enhanced LLMs to modernize legacy codebases. Includes validation pipelines with AWS Lambda orchestration and Aurora state tracking.",
         tags: ["LLMs", "RAG", "AWS Lambda", "Aurora", "Automation"],
       },
       {
@@ -270,7 +270,7 @@ export const siteData: SiteData = {
         name: "Distributed Voting System",
         href: "https://www.hultprize.org",
         description:
-          "Fault-tolerant voting system handling real-time surges with 99.7% success rate under high concurrency for global competitions.",
+          "A fault-tolerant voting system designed for global competitions, handling real-time user surges during live events with graceful degradation under high concurrency.",
         tags: ["Distributed Systems", "Node.js", "PostgreSQL", "Concurrency"],
       },
     ],
@@ -285,25 +285,22 @@ export const siteData: SiteData = {
         href: "https://scholar.google.com/citations?user=YOUR_ID",
         outlet: "Research Publication",
         dateLabel: "Apr 2022",
-        blurb: "2 citations",
       },
       {
         id: "pub-2",
         year: 2020,
         title: "Comprehensive Review of Text-Mining Applications in Finance",
         href: "https://scholar.google.com/citations?user=YOUR_ID",
-        outlet: "Q1 Journal (Impact Factor: 2.964)",
+        outlet: "Q1 Journal",
         dateLabel: "Nov 2020",
-        blurb: "229 citations — Most cited work",
       },
       {
         id: "pub-3",
         year: 2020,
         title: "Interplay of Machine Learning and Software Engineering for Quality Estimations",
         href: "https://scholar.google.com/citations?user=YOUR_ID",
-        outlet: "Research Publication (Top 10%)",
+        outlet: "Research Publication",
         dateLabel: "Nov 2020",
-        blurb: "16 citations",
       },
       {
         id: "pub-4",
@@ -312,7 +309,6 @@ export const siteData: SiteData = {
         href: "https://scholar.google.com/citations?user=YOUR_ID",
         outlet: "Research Publication",
         dateLabel: "Sep 2020",
-        blurb: "26 citations",
       },
       {
         id: "pub-5",
@@ -321,7 +317,6 @@ export const siteData: SiteData = {
         href: "https://scholar.google.com/citations?user=YOUR_ID",
         outlet: "Research Publication",
         dateLabel: "Jul 2020",
-        blurb: "3 citations",
       },
     ],
   },

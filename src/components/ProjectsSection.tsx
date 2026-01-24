@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ProjectItem } from "@/data/site";
 import { TagPill } from "./TagPill";
-import { ArrowUpRightIcon, ArrowRightIcon, LinkIcon } from "./Icons";
+import { ArrowRightIcon } from "./Icons";
 
 type ProjectCardProps = {
   item: ProjectItem;
@@ -28,42 +28,13 @@ function ProjectCard({ item }: ProjectCardProps) {
         </div>
         <div className="z-10 order-1 sm:order-2 sm:col-span-6">
           <h3 className="font-medium leading-snug text-slate-lightest">
-            <div>
-              <a
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="arrow-link group/link inline-flex items-baseline text-base font-medium leading-tight text-slate-lightest hover:text-green focus-visible:text-green"
-                aria-label={`${item.name} (opens in a new tab)`}
-              >
-                <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block" />
-                <span>
-                  {item.name}
-                  <ArrowUpRightIcon className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1" />
-                </span>
-              </a>
-            </div>
+            <span className="text-base font-medium leading-tight">
+              {item.name}
+            </span>
           </h3>
           <p className="mt-2 text-sm leading-normal text-slate">
             {item.description}
           </p>
-          {item.links && item.links.length > 0 && (
-            <ul className="mt-2 flex flex-wrap gap-x-4" aria-label="Project links">
-              {item.links.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative z-10 inline-flex items-center text-sm font-medium text-slate-lightest hover:text-green focus-visible:text-green"
-                  >
-                    <LinkIcon className="mr-1 h-3 w-3" />
-                    <span>{link.label}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
           <ul className="mt-2 flex flex-wrap gap-2" aria-label="Technologies used">
             {item.tags.map((tag) => (
               <li key={tag}>
@@ -101,6 +72,8 @@ export function ProjectsSection({ items, archiveHref }: ProjectsSectionProps) {
         <div className="mt-12">
           <a
             href={archiveHref}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center font-medium leading-tight text-slate-lightest hover:text-green focus-visible:text-green"
             aria-label="View Full Project Archive"
           >

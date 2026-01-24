@@ -1,6 +1,6 @@
 import { ExperienceItem } from "@/data/site";
 import { TagPill } from "./TagPill";
-import { ArrowUpRightIcon, ArrowRightIcon, LinkIcon } from "./Icons";
+import { ArrowRightIcon } from "./Icons";
 
 type ExperienceCardProps = {
   item: ExperienceItem;
@@ -19,24 +19,9 @@ function ExperienceCard({ item }: ExperienceCardProps) {
         </header>
         <div className="z-10 sm:col-span-6">
           <h3 className="font-medium leading-snug text-slate-lightest">
-            <div>
-              <a
-                href={item.companyHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="arrow-link group/link inline-flex items-baseline text-base font-medium leading-tight text-slate-lightest hover:text-green focus-visible:text-green"
-                aria-label={`${item.title} at ${item.company} (opens in a new tab)`}
-              >
-                <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block" />
-                <span>
-                  {item.title} ·{" "}
-                  <span className="inline-block">
-                    {item.company}
-                    <ArrowUpRightIcon className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1" />
-                  </span>
-                </span>
-              </a>
-            </div>
+            <span className="text-base font-medium leading-tight">
+              {item.title} · {item.company}
+            </span>
           </h3>
           <p className="mt-2 text-sm leading-normal text-slate">
             {item.summary}
@@ -50,23 +35,6 @@ function ExperienceCard({ item }: ExperienceCardProps) {
                 >
                   <span className="mr-2 text-green">▹</span>
                   <span>{bullet}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-          {item.links && item.links.length > 0 && (
-            <ul className="mt-2 flex flex-wrap gap-2" aria-label="Related links">
-              {item.links.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative inline-flex items-center text-sm font-medium text-slate-lightest hover:text-green focus-visible:text-green"
-                  >
-                    <LinkIcon className="mr-1 h-3 w-3" />
-                    <span>{link.label}</span>
-                  </a>
                 </li>
               ))}
             </ul>
