@@ -10,6 +10,12 @@ export function Footer({ lines }: FooterProps) {
           {line}
         </p>
       ))}
+      <p className="mt-8">
+        Made with ❤️ by Hamza
+      </p>
+      <p className="mt-1">
+        © 2024 Hamza Abubakar. All rights reserved.
+      </p>
     </footer>
   );
 }

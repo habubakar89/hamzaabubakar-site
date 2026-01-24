@@ -53,10 +53,10 @@ export function Navigation({ items }: NavigationProps) {
                   }`}
                 />
                 <span
-                  className={`nav-text font-bold uppercase tracking-widest transition-all duration-300 ${
+                  className={`nav-text text-xs font-bold uppercase tracking-widest transition-colors duration-300 ${
                     isActive
-                      ? "text-sm text-slate-lightest"
-                      : "text-xs text-slate group-hover:text-slate-lightest group-focus-visible:text-slate-lightest"
+                      ? "text-slate-lightest"
+                      : "text-slate group-hover:text-slate-lightest group-focus-visible:text-slate-lightest"
                   }`}
                 >
                   {item.label}

@@ -27,6 +27,14 @@ export function useScrollspy(
         sectionRatios.current.set(entry.target.id, entry.intersectionRatio);
       });
 
+      // Check if we're at the bottom of the page - if so, activate the last section
+      const isAtBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 50;
+      if (isAtBottom && sectionIds.length > 0) {
+        setActiveId(sectionIds[sectionIds.length - 1]);
+        return;
+      }
+
       // Find the section with the highest intersection ratio
       let maxRatio = 0;
       let maxId: string | null = null;
@@ -87,8 +95,20 @@ export function useScrollspy(
       }
     }
 
+    // Add scroll listener to detect bottom of page (for last section)
+    const handleScroll = () => {
+      const isAtBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 50;
+      if (isAtBottom && sectionIds.length > 0) {
+        setActiveId(sectionIds[sectionIds.length - 1]);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
     return () => {
       observerRef.current?.disconnect();
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [sectionIds, offset]);
 
