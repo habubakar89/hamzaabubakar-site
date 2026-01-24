@@ -41,17 +41,19 @@ export function Navigation({ items }: NavigationProps) {
               <a
                 href={item.href}
                 onClick={(e) => handleClick(e, item.href)}
-                className={`group flex items-center py-3 ${
-                  isActive ? "text-slate-lightest" : ""
+                className={`group flex items-center py-3 transition-all duration-300 ${
+                  isActive ? "text-slate-lightest" : "text-slate hover:text-slate-lightest"
                 }`}
               >
                 <span
-                  className={`nav-indicator ${
-                    isActive ? "nav-indicator-active" : ""
+                  className={`nav-indicator mr-4 h-px transition-all duration-300 ${
+                    isActive
+                      ? "w-16 bg-slate-lightest"
+                      : "w-8 bg-slate group-hover:w-16 group-hover:bg-slate-lightest group-focus-visible:w-16 group-focus-visible:bg-slate-lightest"
                   }`}
                 />
                 <span
-                  className={`text-xs font-bold uppercase tracking-widest transition-colors ${
+                  className={`nav-text text-xs font-bold uppercase tracking-widest transition-all duration-300 ${
                     isActive
                       ? "text-slate-lightest"
                       : "text-slate group-hover:text-slate-lightest group-focus-visible:text-slate-lightest"

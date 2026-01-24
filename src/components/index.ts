@@ -4,7 +4,7 @@ export { SocialLinks } from "./SocialLinks";
 export { AboutSection } from "./AboutSection";
 export { ExperienceSection } from "./ExperienceSection";
 export { ProjectsSection } from "./ProjectsSection";
-export { WritingSection } from "./WritingSection";
+export { ResearchSection } from "./ResearchSection";
 export { EducationSection } from "./EducationSection";
 export { Footer } from "./Footer";
 export { SpotlightEffect } from "./SpotlightEffect";

@@ -38,7 +38,7 @@ export type ProjectItem = {
   links?: { label: string; href: string }[];
 };
 
-export type WritingItem = {
+export type ResearchItem = {
   id: string;
   year: number;
   title: string;
@@ -77,8 +77,8 @@ export type SiteData = {
 
   nav: {
     items: {
-      label: "About" | "Experience" | "Projects" | "Writing" | "Education";
-      href: "#about" | "#experience" | "#projects" | "#writing" | "#education";
+      label: "About" | "Experience" | "Projects" | "Research" | "Education";
+      href: "#about" | "#experience" | "#projects" | "#research" | "#education";
     }[];
   };
 
@@ -90,12 +90,11 @@ export type SiteData = {
   };
 
   projects: {
-    archiveHref: string;
     items: ProjectItem[];
   };
 
-  writing: {
-    items: WritingItem[];
+  research: {
+    items: ResearchItem[];
   };
 
   education: {
@@ -133,7 +132,7 @@ export const siteData: SiteData = {
       { label: "About", href: "#about" },
       { label: "Experience", href: "#experience" },
       { label: "Projects", href: "#projects" },
-      { label: "Writing", href: "#writing" },
+      { label: "Research", href: "#research" },
       { label: "Education", href: "#education" },
     ],
   },
@@ -254,14 +253,13 @@ export const siteData: SiteData = {
   },
 
   projects: {
-    archiveHref: "https://github.com/habubakar89",
     items: [
       {
         id: "proj-1",
         name: "Citation-Grounded Knowledge Platform",
         href: "https://github.com/habubakar89",
         description:
-          "A citation-first Q&A system using multi-stage retrieval and reranking with strict answer gating — if there's no source, there's no answer. Deployed on AWS with control/data-plane separation to support compliance-ready audit trails.",
+          "Citation-first Q&A with multi-stage retrieval + reranking and strict answer gating—no source, no answer—deployed on AWS with audit-ready traces.",
         tags: ["RAG", "LangGraph", "AWS Bedrock", "Lambda", "Step Functions"],
       },
       {
@@ -269,53 +267,13 @@ export const siteData: SiteData = {
         name: "Aarogya — Privacy-Preserving Mental Health Risk Detection",
         href: "https://github.com/habubakar89",
         description:
-          "A privacy-preserving NLP pipeline for early depression and suicide-risk detection, combining social signals, psychological questionnaires, and therapist-style dialogue analysis to produce interpretable risk indicators.",
-        tags: ["NLP", "Privacy-Preserving AI", "Machine Learning", "Python", "Pipelines"],
-      },
-      {
-        id: "proj-3",
-        name: "Diverting Public Complaints Based on Textual Analysis",
-        href: "https://github.com/habubakar89",
-        description:
-          "Built a text-classification pipeline to route financial/public complaints to the right department using comparative ML experiments and evaluation-driven iteration.",
-        tags: ["Python", "Machine Learning", "Text Classification"],
-      },
-      {
-        id: "proj-4",
-        name: "Text Summarization Using Sentiment Analysis",
-        href: "https://github.com/habubakar89",
-        description:
-          "Implemented sentiment-driven summarization on customer review data, integrating web-scraped inputs with supervised ML baselines.",
-        tags: ["Python", "NLP", "Machine Learning"],
-      },
-      {
-        id: "proj-5",
-        name: "Survey Masters Website",
-        href: "https://github.com/habubakar89",
-        description:
-          "Designed and built a full-stack survey platform with authenticated workflows for creating surveys and collecting responses.",
-        tags: ["Web", "JavaScript", "CSS", "Backend"],
-      },
-      {
-        id: "proj-6",
-        name: "Deep Learning for Satellite Imaging",
-        href: "https://github.com/habubakar89",
-        description:
-          "Produced a deep-learning research report exploring satellite-imaging use cases, modeling approaches, and practical deployment constraints.",
-        tags: ["Deep Learning", "Computer Vision", "Research"],
-      },
-      {
-        id: "proj-7",
-        name: "Question Paper Generator",
-        href: "https://github.com/habubakar89",
-        description:
-          "Built a web-based application concept for generating structured question papers with configurable templates and sections.",
-        tags: ["Web", "Automation", "Product Design"],
+          "Privacy-preserving NLP pipeline for early depression and suicide-risk signals, combining social indicators and clinical questionnaires with a deployment-ready workflow.",
+        tags: ["NLP", "Privacy", "Machine Learning", "AWS", "Python"],
       },
     ],
   },
 
-  writing: {
+  research: {
     items: [
       {
         id: "pub-1",

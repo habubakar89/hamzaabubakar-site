@@ -1,9 +1,9 @@
-import { WritingItem } from "@/data/site";
+import { ResearchItem } from "@/data/site";
 import { ArrowUpRightIcon } from "./Icons";
 
-// Group writing items by year
-function groupByYear(items: WritingItem[]): Map<number, WritingItem[]> {
-  const groups = new Map<number, WritingItem[]>();
+// Group research items by year
+function groupByYear(items: ResearchItem[]): Map<number, ResearchItem[]> {
+  const groups = new Map<number, ResearchItem[]>();
 
   // Sort by year descending first
   const sorted = [...items].sort((a, b) => b.year - a.year);
@@ -16,12 +16,12 @@ function groupByYear(items: WritingItem[]): Map<number, WritingItem[]> {
   return groups;
 }
 
-type WritingRowProps = {
-  item: WritingItem;
+type ResearchRowProps = {
+  item: ResearchItem;
   showYear?: boolean;
 };
 
-function WritingRow({ item, showYear = false }: WritingRowProps) {
+function ResearchRow({ item, showYear = false }: ResearchRowProps) {
   return (
     <li className="mb-4">
       <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-[80px_1fr] sm:gap-6 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
@@ -69,29 +69,29 @@ function WritingRow({ item, showYear = false }: WritingRowProps) {
   );
 }
 
-type WritingSectionProps = {
-  items: WritingItem[];
+type ResearchSectionProps = {
+  items: ResearchItem[];
 };
 
-export function WritingSection({ items }: WritingSectionProps) {
+export function ResearchSection({ items }: ResearchSectionProps) {
   const groupedItems = groupByYear(items);
   const years = Array.from(groupedItems.keys()).sort((a, b) => b - a);
 
   return (
     <section
-      id="writing"
+      id="research"
       className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-      aria-label="Writing and articles"
+      aria-label="Research publications"
     >
       <div className="section-heading">
-        <h2 className="section-heading-text">Writing</h2>
+        <h2 className="section-heading-text">Research</h2>
       </div>
       <div>
         <ol className="group/list">
           {years.map((year) => {
             const yearItems = groupedItems.get(year) || [];
             return yearItems.map((item, index) => (
-              <WritingRow
+              <ResearchRow
                 key={item.id}
                 item={item}
                 showYear={index === 0}

@@ -4,7 +4,7 @@ import {
   AboutSection,
   ExperienceSection,
   ProjectsSection,
-  WritingSection,
+  ResearchSection,
   EducationSection,
   Footer,
   SpotlightEffect,
@@ -40,12 +40,9 @@ export default function Home() {
               resumeHref={siteData.experience.resumeHref}
             />
 
-            <ProjectsSection
-              items={siteData.projects.items}
-              archiveHref={siteData.projects.archiveHref}
-            />
+            <ProjectsSection items={siteData.projects.items} />
 
-            <WritingSection items={siteData.writing.items} />
+            <ResearchSection items={siteData.research.items} />
 
             <EducationSection items={siteData.education.items} />
 

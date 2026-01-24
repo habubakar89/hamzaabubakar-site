@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { ProjectItem } from "@/data/site";
 import { TagPill } from "./TagPill";
-import { ArrowRightIcon } from "./Icons";
 
 type ProjectCardProps = {
   item: ProjectItem;
@@ -62,10 +61,9 @@ function ProjectCard({ item }: ProjectCardProps) {
 
 type ProjectsSectionProps = {
   items: ProjectItem[];
-  archiveHref: string;
 };
 
-export function ProjectsSection({ items, archiveHref }: ProjectsSectionProps) {
+export function ProjectsSection({ items }: ProjectsSectionProps) {
   return (
     <section
       id="projects"
@@ -81,20 +79,6 @@ export function ProjectsSection({ items, archiveHref }: ProjectsSectionProps) {
             <ProjectCard key={item.id} item={item} />
           ))}
         </ol>
-        <div className="mt-12">
-          <a
-            href={archiveHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center font-medium leading-tight text-slate-lightest hover:text-green focus-visible:text-green"
-            aria-label="View Full Project Archive"
-          >
-            <span className="border-b border-transparent pb-px transition group-hover:border-green">
-              View Full Project Archive
-            </span>
-            <ArrowRightIcon className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
-        </div>
       </div>
     </section>
   );
