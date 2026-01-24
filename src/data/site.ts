@@ -138,7 +138,6 @@ export const siteData: SiteData = {
   },
 
   social: [
-    { label: "GitHub", href: "https://github.com/habubakar89", icon: "github" },
     {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/whyser/",

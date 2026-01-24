@@ -18,10 +18,9 @@ function groupByYear(items: ResearchItem[]): Map<number, ResearchItem[]> {
 
 type ResearchRowProps = {
   item: ResearchItem;
-  showYear?: boolean;
 };
 
-function ResearchRow({ item, showYear = false }: ResearchRowProps) {
+function ResearchRow({ item }: ResearchRowProps) {
   return (
     <li className="mb-4">
       <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-[80px_1fr] sm:gap-6 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
@@ -32,9 +31,8 @@ function ResearchRow({ item, showYear = false }: ResearchRowProps) {
         />
         <div
           className="z-10 text-xs font-semibold uppercase tracking-wide text-slate"
-          aria-hidden={!showYear}
         >
-          {showYear ? item.year : ""}
+          {item.year}
         </div>
         <div className="z-10">
           <h3 className="font-medium leading-snug text-slate-lightest">
@@ -90,12 +88,8 @@ export function ResearchSection({ items }: ResearchSectionProps) {
         <ol className="group/list">
           {years.map((year) => {
             const yearItems = groupedItems.get(year) || [];
-            return yearItems.map((item, index) => (
-              <ResearchRow
-                key={item.id}
-                item={item}
-                showYear={index === 0}
-              />
+            return yearItems.map((item) => (
+              <ResearchRow key={item.id} item={item} />
             ));
           })}
         </ol>
