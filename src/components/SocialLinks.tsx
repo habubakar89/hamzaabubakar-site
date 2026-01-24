@@ -8,6 +8,8 @@ import {
   InstagramIcon,
   EmailIcon,
   ResumeIcon,
+  MediumIcon,
+  LinktreeIcon,
 } from "./Icons";
 
 const iconMap = {
@@ -17,6 +19,8 @@ const iconMap = {
   instagram: InstagramIcon,
   email: EmailIcon,
   resume: ResumeIcon,
+  medium: MediumIcon,
+  linktree: LinktreeIcon,
 };
 
 type SocialLinksProps = {

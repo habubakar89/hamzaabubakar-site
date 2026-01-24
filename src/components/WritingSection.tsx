@@ -24,15 +24,19 @@ type WritingRowProps = {
 function WritingRow({ item, showYear = false }: WritingRowProps) {
   return (
     <li className="mb-4">
-      <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-        <div className="card-hover" />
+      <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-[80px_1fr] sm:gap-6 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+        {/* Hover background - absolutely positioned */}
         <div
-          className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate sm:col-span-2"
+          className="pointer-events-none absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition-all lg:-inset-x-6 lg:block lg:group-hover:bg-navy-light/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)]"
+          aria-hidden="true"
+        />
+        <div
+          className="z-10 text-xs font-semibold uppercase tracking-wide text-slate"
           aria-hidden={!showYear}
         >
           {showYear ? item.year : ""}
         </div>
-        <div className="z-10 sm:col-span-6">
+        <div className="z-10">
           <h3 className="font-medium leading-snug text-slate-lightest">
             <a
               href={item.href}

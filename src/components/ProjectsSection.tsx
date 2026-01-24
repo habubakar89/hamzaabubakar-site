@@ -8,29 +8,37 @@ type ProjectCardProps = {
 };
 
 function ProjectCard({ item }: ProjectCardProps) {
+  const hasImage = !!item.image;
+
   return (
     <li className="mb-12">
-      <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-[200px_1fr] sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+      <div
+        className={`group relative grid gap-4 pb-1 transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50 ${
+          hasImage ? "sm:grid-cols-[200px_1fr] sm:gap-8 md:gap-4" : ""
+        }`}
+      >
         {/* Hover background - absolutely positioned, covers entire card */}
         <div
           className="pointer-events-none absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition-all lg:-inset-x-6 lg:block lg:group-hover:bg-navy-light/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)]"
           aria-hidden="true"
         />
-        <div className="z-10 order-2 sm:order-1">
-          {item.image ? (
+
+        {/* Image column - only render when image exists */}
+        {hasImage && (
+          <div className="z-10 order-2 sm:order-1">
             <Image
-              src={item.image.src}
-              alt={item.image.alt}
-              width={item.image.width}
-              height={item.image.height}
+              src={item.image!.src}
+              alt={item.image!.alt}
+              width={item.image!.width}
+              height={item.image!.height}
               className="rounded border-2 border-navy-lightest/10 transition group-hover:border-navy-lightest/30"
               loading="lazy"
             />
-          ) : (
-            <div className="aspect-video rounded border-2 border-navy-lightest/10 bg-navy-light/50 transition group-hover:border-navy-lightest/30" />
-          )}
-        </div>
-        <div className="z-10 order-1 sm:order-2">
+          </div>
+        )}
+
+        {/* Content column */}
+        <div className={`z-10 ${hasImage ? "order-1 sm:order-2" : ""}`}>
           <h3 className="font-medium leading-snug text-slate-lightest">
             <span className="text-base font-medium leading-tight">
               {item.name}

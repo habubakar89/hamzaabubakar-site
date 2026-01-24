@@ -5,6 +5,7 @@ import {
   ExperienceSection,
   ProjectsSection,
   WritingSection,
+  EducationSection,
   Footer,
   SpotlightEffect,
 } from "@/components";
@@ -45,6 +46,8 @@ export default function Home() {
             />
 
             <WritingSection items={siteData.writing.items} />
+
+            <EducationSection items={siteData.education.items} />
 
             <Footer lines={siteData.footer.lines} />
           </main>

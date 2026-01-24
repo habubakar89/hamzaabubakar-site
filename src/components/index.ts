@@ -5,6 +5,7 @@ export { AboutSection } from "./AboutSection";
 export { ExperienceSection } from "./ExperienceSection";
 export { ProjectsSection } from "./ProjectsSection";
 export { WritingSection } from "./WritingSection";
+export { EducationSection } from "./EducationSection";
 export { Footer } from "./Footer";
 export { SpotlightEffect } from "./SpotlightEffect";
 export { TagPill } from "./TagPill";

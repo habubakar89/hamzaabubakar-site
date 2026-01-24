@@ -5,7 +5,7 @@
 export type Social = {
   label: string;
   href: string;
-  icon: "github" | "linkedin" | "x" | "instagram" | "email" | "resume";
+  icon: "github" | "linkedin" | "x" | "instagram" | "email" | "resume" | "medium" | "linktree";
 };
 
 export type Tag = string;
@@ -48,6 +48,14 @@ export type WritingItem = {
   blurb?: string;
 };
 
+export type EducationItem = {
+  id: string;
+  school: string;
+  degree: string;
+  field: string;
+  location: string;
+};
+
 export type SiteData = {
   meta: {
     siteName: string;
@@ -69,8 +77,8 @@ export type SiteData = {
 
   nav: {
     items: {
-      label: "About" | "Experience" | "Projects" | "Writing";
-      href: "#about" | "#experience" | "#projects" | "#writing";
+      label: "About" | "Experience" | "Projects" | "Writing" | "Education";
+      href: "#about" | "#experience" | "#projects" | "#writing" | "#education";
     }[];
   };
 
@@ -90,13 +98,17 @@ export type SiteData = {
     items: WritingItem[];
   };
 
+  education: {
+    items: EducationItem[];
+  };
+
   footer: {
     lines: string[];
   };
 };
 
 // ------------------------
-// SAMPLE DATA (placeholders)
+// SITE DATA
 // ------------------------
 
 export const siteData: SiteData = {
@@ -122,6 +134,7 @@ export const siteData: SiteData = {
       { label: "Experience", href: "#experience" },
       { label: "Projects", href: "#projects" },
       { label: "Writing", href: "#writing" },
+      { label: "Education", href: "#education" },
     ],
   },
 
@@ -132,14 +145,16 @@ export const siteData: SiteData = {
       href: "https://www.linkedin.com/in/whyser/",
       icon: "linkedin",
     },
+    { label: "Medium", href: "https://medium.com/@habubakar89", icon: "medium" },
+    { label: "Book a Call", href: "https://linktr.ee/habubakar89", icon: "linktree" },
     { label: "Email", href: "mailto:habubakar89@gmail.com", icon: "email" },
   ],
 
   about: {
     paragraphs: [
-      "I'm a software engineer at Morgan Stanley building real-time fraud detection systems and scalable data platforms. My work spans GenAI applications, behavioral analytics, and high-throughput streaming architectures.",
-      "I specialize in RAG systems, LLM evaluation, and agent orchestration — with a focus on reliability, guardrails, and production-grade AI. I'm AWS Certified in Machine Learning and have published peer-reviewed research in NLP and text mining.",
-      "Previously, I've built gesture recognition frameworks, distributed voting systems, and ML-driven content platforms. I hold an M.S. in Computer Science from University at Buffalo and a B.Tech from Nirma University.",
+      "I'm Hamza — the kind of person who's happiest with a hard problem, a clean plan, and a strong cup of coffee (or two).",
+      "I'm big on consistency: you'll usually find me in the gym, writing something I'll over-edit later, or planning the next trip. I like hikes that make you earn the view and challenges that make you earn the outcome.",
+      "I keep things simple: show up, do the work, keep improving. If it ships, scales, and still sleeps at night — that's a good day.",
     ],
   },
 
@@ -246,32 +261,56 @@ export const siteData: SiteData = {
         name: "Citation-Grounded Knowledge Platform",
         href: "https://github.com/habubakar89",
         description:
-          "A citation-first Q&A system using multi-stage retrieval and reranking with strict answer gating — if there's no source, there's no answer. Deployed on AWS with control/data plane separation for compliance-ready audit trails.",
+          "A citation-first Q&A system using multi-stage retrieval and reranking with strict answer gating — if there's no source, there's no answer. Deployed on AWS with control/data-plane separation to support compliance-ready audit trails.",
         tags: ["RAG", "LangGraph", "AWS Bedrock", "Lambda", "Step Functions"],
       },
       {
         id: "proj-2",
-        name: "Real-Time Fraud Detection Engine",
-        href: "https://www.morganstanley.com",
+        name: "Aarogya — Privacy-Preserving Mental Health Risk Detection",
+        href: "https://github.com/habubakar89",
         description:
-          "Patent-pending behavioral analysis system that correlates activity across platforms to identify fraud patterns. Built with Kafka and Apache Flink for low-latency streaming and real-time risk evaluation.",
-        tags: ["Kafka", "Apache Flink", "RAG", "Fraud Detection", "Python"],
+          "A privacy-preserving NLP pipeline for early depression and suicide-risk detection, combining social signals, psychological questionnaires, and therapist-style dialogue analysis to produce interpretable risk indicators.",
+        tags: ["NLP", "Privacy-Preserving AI", "Machine Learning", "Python", "Pipelines"],
       },
       {
         id: "proj-3",
-        name: "Legacy Code Modernization Pipeline",
-        href: "https://www.morganstanley.com",
+        name: "Diverting Public Complaints Based on Textual Analysis",
+        href: "https://github.com/habubakar89",
         description:
-          "An automated code translation system using RAG-enhanced LLMs to modernize legacy codebases. Includes validation pipelines with AWS Lambda orchestration and Aurora state tracking.",
-        tags: ["LLMs", "RAG", "AWS Lambda", "Aurora", "Automation"],
+          "Built a text-classification pipeline to route financial/public complaints to the right department using comparative ML experiments and evaluation-driven iteration.",
+        tags: ["Python", "Machine Learning", "Text Classification"],
       },
       {
         id: "proj-4",
-        name: "Distributed Voting System",
-        href: "https://www.hultprize.org",
+        name: "Text Summarization Using Sentiment Analysis",
+        href: "https://github.com/habubakar89",
         description:
-          "A fault-tolerant voting system designed for global competitions, handling real-time user surges during live events with graceful degradation under high concurrency.",
-        tags: ["Distributed Systems", "Node.js", "PostgreSQL", "Concurrency"],
+          "Implemented sentiment-driven summarization on customer review data, integrating web-scraped inputs with supervised ML baselines.",
+        tags: ["Python", "NLP", "Machine Learning"],
+      },
+      {
+        id: "proj-5",
+        name: "Survey Masters Website",
+        href: "https://github.com/habubakar89",
+        description:
+          "Designed and built a full-stack survey platform with authenticated workflows for creating surveys and collecting responses.",
+        tags: ["Web", "JavaScript", "CSS", "Backend"],
+      },
+      {
+        id: "proj-6",
+        name: "Deep Learning for Satellite Imaging",
+        href: "https://github.com/habubakar89",
+        description:
+          "Produced a deep-learning research report exploring satellite-imaging use cases, modeling approaches, and practical deployment constraints.",
+        tags: ["Deep Learning", "Computer Vision", "Research"],
+      },
+      {
+        id: "proj-7",
+        name: "Question Paper Generator",
+        href: "https://github.com/habubakar89",
+        description:
+          "Built a web-based application concept for generating structured question papers with configurable templates and sections.",
+        tags: ["Web", "Automation", "Product Design"],
       },
     ],
   },
@@ -282,7 +321,7 @@ export const siteData: SiteData = {
         id: "pub-1",
         year: 2022,
         title: "Context-Enriched Machine Learning-Based Approach for Sentiment Analysis",
-        href: "https://scholar.google.com/citations?user=YOUR_ID",
+        href: "https://link.springer.com/chapter/10.1007/978-981-16-8892-8_6",
         outlet: "Research Publication",
         dateLabel: "Apr 2022",
       },
@@ -290,7 +329,7 @@ export const siteData: SiteData = {
         id: "pub-2",
         year: 2020,
         title: "Comprehensive Review of Text-Mining Applications in Finance",
-        href: "https://scholar.google.com/citations?user=YOUR_ID",
+        href: "https://link.springer.com/article/10.1186/s40854-020-00205-1",
         outlet: "Q1 Journal",
         dateLabel: "Nov 2020",
       },
@@ -298,7 +337,7 @@ export const siteData: SiteData = {
         id: "pub-3",
         year: 2020,
         title: "Interplay of Machine Learning and Software Engineering for Quality Estimations",
-        href: "https://scholar.google.com/citations?user=YOUR_ID",
+        href: "https://ieeexplore.ieee.org/abstract/document/9256507",
         outlet: "Research Publication",
         dateLabel: "Nov 2020",
       },
@@ -306,7 +345,7 @@ export const siteData: SiteData = {
         id: "pub-4",
         year: 2020,
         title: "BioUAV: Blockchain Framework for Digital Identification in Next-Gen UAVs",
-        href: "https://scholar.google.com/citations?user=YOUR_ID",
+        href: "https://dl.acm.org/doi/abs/10.1145/3414045.3415945",
         outlet: "Research Publication",
         dateLabel: "Sep 2020",
       },
@@ -314,9 +353,28 @@ export const siteData: SiteData = {
         id: "pub-5",
         year: 2020,
         title: "Comparative Study of Sentiment Analysis and Text Summarization for Commercial Social Networks",
-        href: "https://scholar.google.com/citations?user=YOUR_ID",
+        href: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=PK4Q-O4AAAAJ&citation_for_view=PK4Q-O4AAAAJ:u5HHmVD_uO8C",
         outlet: "Research Publication",
         dateLabel: "Jul 2020",
+      },
+    ],
+  },
+
+  education: {
+    items: [
+      {
+        id: "edu-1",
+        school: "University at Buffalo, SUNY",
+        degree: "M.S.",
+        field: "Computer Science",
+        location: "Buffalo, NY",
+      },
+      {
+        id: "edu-2",
+        school: "Nirma University",
+        degree: "B.Tech",
+        field: "Computer Engineering",
+        location: "Ahmedabad, India",
       },
     ],
   },
