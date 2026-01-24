@@ -270,6 +270,46 @@ export const siteData: SiteData = {
           "Privacy-preserving NLP pipeline for early depression and suicide-risk signals, combining social indicators and clinical questionnaires with a deployment-ready workflow.",
         tags: ["NLP", "Privacy", "Machine Learning", "AWS", "Python"],
       },
+      {
+        id: "proj-3",
+        name: "Diverting Public Complaints Based on Textual Analysis",
+        href: "https://github.com/habubakar89",
+        description:
+          "Built a text-classification pipeline to route financial/public complaints to the right department using comparative ML experiments and evaluation-driven iteration.",
+        tags: ["Python", "Machine Learning", "Text Classification"],
+      },
+      {
+        id: "proj-4",
+        name: "Text Summarization Using Sentiment Analysis",
+        href: "https://github.com/habubakar89",
+        description:
+          "Implemented sentiment-driven summarization on customer review data, integrating web-scraped inputs with supervised ML baselines.",
+        tags: ["Python", "NLP", "Machine Learning"],
+      },
+      {
+        id: "proj-5",
+        name: "Survey Masters Website",
+        href: "https://github.com/habubakar89",
+        description:
+          "Designed and built a full-stack survey platform with authenticated workflows for creating surveys and collecting responses.",
+        tags: ["Web", "JavaScript", "CSS", "Backend"],
+      },
+      {
+        id: "proj-6",
+        name: "Deep Learning for Satellite Imaging",
+        href: "https://github.com/habubakar89",
+        description:
+          "Produced a deep-learning research report exploring satellite-imaging use cases, modeling approaches, and practical deployment constraints.",
+        tags: ["Deep Learning", "Computer Vision", "Research"],
+      },
+      {
+        id: "proj-7",
+        name: "Question Paper Generator",
+        href: "https://github.com/habubakar89",
+        description:
+          "Built a web-based application concept for generating structured question papers with configurable templates and sections.",
+        tags: ["Web", "Automation", "Product Design"],
+      },
     ],
   },
 
