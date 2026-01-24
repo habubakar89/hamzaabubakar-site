@@ -101,16 +101,16 @@ export type SiteData = {
 
 export const siteData: SiteData = {
   meta: {
-    siteName: "Hamza Abubakar",
-    title: "Hamza Abubakar - Software Engineer",
+    siteName: "Hamza Abubakar Kheruwala",
+    title: "Hamza Abubakar Kheruwala - Software Engineer",
     description:
-      "Portfolio of Hamza Abubakar - building reliable, elegant products with a focus on UX, performance, and accessibility.",
+      "Portfolio of Hamza Abubakar Kheruwala - building reliable, elegant products with a focus on UX, performance, and accessibility.",
     ogImage: "/og.png",
     url: "https://www.hamzaabubakar.com",
   },
 
   hero: {
-    name: "Hamza Abubakar",
+    name: "Hamza Abubakar Kheruwala",
     role: "Software Engineer",
     tagline:
       "I build accessible, performance-minded products and the systems behind them.",
@@ -126,14 +126,13 @@ export const siteData: SiteData = {
   },
 
   social: [
-    { label: "GitHub", href: "https://github.com/yourhandle", icon: "github" },
+    { label: "GitHub", href: "https://github.com/habubakar89", icon: "github" },
     {
       label: "LinkedIn",
-      href: "https://linkedin.com/in/yourhandle",
+      href: "https://www.linkedin.com/in/whyser/",
       icon: "linkedin",
     },
-    { label: "X", href: "https://x.com/yourhandle", icon: "x" },
-    { label: "Email", href: "mailto:you@domain.com", icon: "email" },
+    { label: "Email", href: "mailto:habubakar89@gmail.com", icon: "email" },
   ],
 
   about: {
@@ -307,8 +306,7 @@ export const siteData: SiteData = {
 
   footer: {
     lines: [
-      "Built with Next.js, Tailwind CSS, and deployed on Vercel.",
-      "Inspired by clean, content-first layouts and thoughtful interaction design.",
+      "Built with Next.js and Tailwind CSS.",
     ],
   },
 };
