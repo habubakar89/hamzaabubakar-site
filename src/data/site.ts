@@ -327,8 +327,6 @@ export const siteData: SiteData = {
   },
 
   footer: {
-    lines: [
-      "Built with Next.js and Tailwind CSS.",
-    ],
+    lines: [],
   },
 };
