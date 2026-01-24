@@ -14,7 +14,7 @@ export function Footer({ lines }: FooterProps) {
         Made with ❤️ by Hamza
       </p>
       <p className="mt-1">
-        © 2024 Hamza Abubakar. All rights reserved.
+        © {new Date().getFullYear()} Hamza Abubakar. All rights reserved.
       </p>
     </footer>
   );
