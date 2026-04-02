@@ -1,0 +1,591 @@
+================================================================================
+PORTFOLIO UPDATE — AGENT TASK BRIEF
+Site: hamzaabubakar.com
+Stack: Next.js + Tailwind CSS
+Target positioning: E5 AI/Deployed Systems/Backend Engineer
+File: portfolio_update_agent_tasks.txt
+================================================================================
+
+PURPOSE
+-------
+This file contains every task an agent needs to execute to update
+hamzaabubakar.com. Tasks are ordered by dependency. Execute them sequentially.
+Do not skip exploration steps — the content structure must be confirmed before
+editing. All copy is provided exactly as it should appear in the final site.
+
+POSITIONING GOAL
+----------------
+E5 engineer: someone who does not just build systems but defines how systems
+get built. Technical standards they set get adopted org-wide. Patterns they
+document eliminate classes of problems for engineers who come after. They are
+the person other engineers call when something is architecturally hard. Their
+work multiplies the output of teams they touch.
+
+Dual positioning: AI Systems / Deployed Engineering + Backend Systems.
+These are complementary, not competing: the backend depth is what makes the
+AI systems trustworthy. Surface both.
+
+DO NOT DO
+---------
+- Do not add numbers or metrics anywhere in the portfolio content
+- Do not copy resume bullet points verbatim
+- Do not invent experience, tools, or responsibilities not in the source material
+- Do not remove the Research or Education sections
+- Do not change the visual design, color scheme, layout, or component structure
+- Do not modify navigation link targets or social links
+
+================================================================================
+TASK 0: EXPLORE AND MAP THE CODEBASE
+================================================================================
+
+Before making any changes, do the following:
+
+0.1 Find the root of the project. Run: ls and look for package.json, next.config.js,
+    or next.config.ts to confirm the Next.js root.
+
+0.2 Locate where content is stored. Check for:
+    - A /data/ or /lib/ directory containing JS/TS data files
+    - A /content/ directory with JSON or MDX files
+    - Hardcoded content inside /components/ or /app/ files
+    - A /src/ directory wrapping any of the above
+    Look for files named: experience.ts, projects.ts, data.ts, config.ts,
+    or similar. The experience entries and project entries are almost certainly
+    in a structured data file, not hardcoded inline.
+
+0.3 Find the component that renders the hero/header section (H1, H2, tagline).
+    Likely in: /components/Header.tsx, /app/page.tsx, or /components/Hero.tsx.
+
+0.4 Find the component that renders the About section.
+    Likely in: /components/About.tsx or inline in /app/page.tsx.
+
+0.5 Find the component or data file for Experience entries.
+    Likely in: /data/experience.ts or /components/Experience.tsx.
+
+0.6 Find the component or data file for Projects entries.
+    Likely in: /data/projects.ts or /components/Projects.tsx.
+
+0.7 Confirm the tag-pill class usage and whether tech stack tags are plain
+    strings or objects. Confirm bullet point structure (array of strings, or
+    single description string).
+
+0.8 Document your findings before making any edits. Note the exact file path
+    for each content location you will be editing.
+
+================================================================================
+TASK 1: HERO SECTION — Title and Tagline
+================================================================================
+
+TARGET FILES: The component rendering H1, H2, and tagline text.
+Likely: /components/Header.tsx or /app/page.tsx
+
+1.1 CHANGE H2 (current role/title line):
+    FROM: "Software Engineer"
+    TO:   "AI Systems Engineer"
+
+1.2 CHANGE tagline paragraph:
+    FROM: "I build systems that scale—and still behave on a Monday morning."
+    TO:   "I architect production AI systems that hold up under the conditions
+           real users create — not just in the test harness."
+
+1.3 ADD a second line below the tagline (sub-headline, same text-slate styling):
+    "I set the technical direction for how agent systems get built, evaluated,
+    and operated at scale. What I learn in production becomes the pattern the
+    next team builds on."
+
+    Implementation note: Add this as a second <p> tag with the same class as
+    the existing tagline paragraph, or as a sibling element with consistent
+    styling. Do not bold it. Keep it visually subordinate to the tagline.
+
+================================================================================
+TASK 2: ABOUT SECTION — Full rewrite
+================================================================================
+
+TARGET FILES: The component or inline JSX rendering the #about section paragraphs.
+
+Replace all existing about paragraphs with the following three paragraphs.
+Preserve any existing image, image alt text, and image styling. Only replace
+the text content.
+
+PARAGRAPH 1:
+"I'm an AI systems engineer at Morgan Stanley, where I architect and operate
+production LLM agent systems — the kind that run in regulated environments,
+serve hundreds of analysts daily, and are designed so that a confident wrong
+answer is worse than no answer at all. I own the technical decisions: what the
+agent orchestration layer looks like, how evaluation is structured so that
+benchmark improvements actually predict production behavior, and what the
+system needs to capture so it can be audited and improved over time."
+
+PARAGRAPH 2:
+"Most of what I know came from shipping things that failed in instructive ways.
+I deployed a model that outperformed its predecessor on every internal metric
+and degraded for real users. Diagnosing that — running the correlation analysis,
+identifying which benchmarks had real predictive signal and which were noise,
+rebuilding the evaluation framework from the ground up — changed how I think
+about what it means for an AI system to actually be good. The framework I built
+is now the standard the team uses to evaluate every model release. That pattern
+— a production failure becoming an org-wide standard — has repeated across most
+of the systems I've built."
+
+PARAGRAPH 3:
+"I work across the full stack that makes AI systems trustworthy in production:
+LangGraph for multi-step agent orchestration, Python and TypeScript for
+pipelines and services, Kafka and Flink for streaming data infrastructure,
+AWS for deployment. But the stack is secondary. The discipline is knowing
+where the system needs to be conservative, where confidence should route to
+a human, and how to document what breaks so the next engineer building a
+similar system doesn't have to rediscover it. I've shipped three systems
+that became reusable references for teams building after me. That multiplier
+effect is the work I care most about."
+
+================================================================================
+TASK 3: ADD NEW SECTION — "How I Build"
+================================================================================
+
+TARGET FILES: /app/page.tsx or wherever sections are composed.
+This section does not currently exist. It must be added between the About
+section and the Experience section.
+
+3.1 Add a new section with id="approach" (or id="how-i-build") to the page.
+    Add a corresponding navigation link labeled "Approach" to the nav component,
+    pointing to this section.
+
+3.2 Add a section heading styled identically to the other section headings
+    (use the same section-heading and section-heading-text classes):
+    Text: "How I Build"
+
+3.3 The section body contains four principle blocks. Each block has:
+    - A short bold title (one line)
+    - A short paragraph (2-4 sentences)
+
+    Render each block as a distinct visual group. Suggested markup per block:
+    <div class="mb-8">
+      <h3 class="font-semibold text-lightest-slate mb-2">[TITLE]</h3>
+      <p class="text-slate">[PARAGRAPH]</p>
+    </div>
+
+    Adjust class names to match the existing design system. The goal is four
+    readable blocks that scan quickly without feeling like a wall of text.
+
+BLOCK 1:
+TITLE: "Evaluation is an architecture problem, not a QA step."
+PARAGRAPH: "The most expensive mistake in production AI is optimizing for
+the wrong signal. I treat evaluation design — choosing what to measure and
+verifying it predicts real outcomes — as a first-class engineering decision
+made at the start of a project, not a check at the end. A benchmark that
+doesn't correlate with what users actually experience is worse than no
+benchmark: it gives false confidence."
+
+BLOCK 2:
+TITLE: "Confident wrong answers are worse than no answer."
+PARAGRAPH: "In high-stakes environments, the right architectural call is
+sometimes to route to a human rather than return a low-confidence response.
+Confidence-gated routing isn't a fallback pattern — it's a deliberate
+design decision that has to be calibrated against real production data and
+revisited as the system evolves. I've built this into production systems
+serving regulated environments and it is the reason those systems have had
+zero compliance incidents."
+
+BLOCK 3:
+TITLE: "Backend reliability is what makes AI systems trustworthy."
+PARAGRAPH: "Agents that can't be audited, pipelines that degrade under load,
+evaluation frameworks that track proxy metrics instead of user outcomes —
+these failures live in the infrastructure layer, not the model layer. The
+LLM is often the easiest part of the system to swap. The surrounding
+infrastructure — streaming pipelines, observability, retrieval architecture,
+structured output enforcement — is what determines whether users can
+actually rely on the system."
+
+BLOCK 4:
+TITLE: "Every system should outlast the original deployment."
+PARAGRAPH: "After every production system I build, I document the failure
+modes — not just the architecture, but the specific places where the design
+breaks and what you have to do about it. That documentation is what makes
+a system reusable rather than a one-off. The three AI systems I'm most
+proud of are all in active use by teams I've never worked with directly,
+built on patterns I extracted from my own production experience."
+
+================================================================================
+TASK 4: EXPERIENCE SECTION — Rewrite all entries
+================================================================================
+
+TARGET FILES: The data file or component containing experience entries.
+The structure is: date header, role/company h3, description paragraph,
+bullet list, tech stack pills. Edit only the text content, not the structure.
+
+--------------------------------------------------------------------------------
+ENTRY 1: SDE II — Morgan Stanley (Nov 2023–Present)
+--------------------------------------------------------------------------------
+
+DATE/HEADER: "Nov 2023 — Present"
+COMPANY: "Morgan Stanley"
+ROLE TITLE: "Senior Software Engineer II — AI Systems & Infrastructure"
+
+DESCRIPTION (replaces existing summary paragraph):
+"Technical owner of production LLM agent systems serving analysts in a
+regulated financial environment. Responsible for the full stack: agent
+orchestration architecture, retrieval and reranking pipeline design,
+evaluation infrastructure, and the patterns other teams use when building
+similar systems."
+
+BULLET POINTS (replaces existing bullets — keep same visual format):
+- "Designed and operate a multi-step LangGraph agent with confidence-gated
+  routing and citation-only generation — architected so that an uncertain
+  model routes to a human analyst rather than returning a low-confidence answer.
+  Zero compliance incidents in production."
+
+- "Rebuilt the organization's LLM evaluation framework after shipping a model
+  that outperformed its predecessor on every benchmark and was worse for real
+  users. Ran correlation analysis across all benchmark tasks against production
+  outcome signals, identified which had real predictive power, and rebuilt
+  scoring around outcome-aligned weighting with a mandatory human judgment gate.
+  The resulting framework is now the standard for every model release."
+
+- "The RAG architecture I built — hybrid retrieval, cross-encoder reranking,
+  confidence-gated abstention, per-query audit trail — has been adopted as the
+  baseline by three downstream teams building their own LLM systems. I
+  packaged the design decisions and failure modes into reusable documentation
+  they could build on without starting from scratch."
+
+- "Co-architect directly with enterprise engineering teams: running architecture
+  reviews when delivery is broken, diagnosing structural failures, and designing
+  fixes that get institutionalized. Recovered a churning enterprise account by
+  identifying and fixing the root cause of three consecutive delivery failures.
+  The structural fix I designed was adopted across all enterprise accounts."
+
+TECH STACK TAGS:
+LangGraph · LangChain · Python · pgvector · Pinecone · AWS Bedrock · Lambda
+Step Functions · Kafka · Apache Flink · Terraform · TypeScript
+
+--------------------------------------------------------------------------------
+ENTRY 2: SDE I — Morgan Stanley (Feb 2023–Nov 2023)
+--------------------------------------------------------------------------------
+
+DATE/HEADER: "Feb 2023 — Nov 2023"
+COMPANY: "Morgan Stanley"
+ROLE TITLE: "Software Engineer I — AI Systems & Automation"
+
+DESCRIPTION:
+"Shipped Morgan Stanley's earliest production LLM deployments. Built the
+foundational AI infrastructure — pipelines, evaluation tooling, human feedback
+systems — that later became the standard reference for teams building LLM
+systems across the organization."
+
+BULLET POINTS:
+- "Led one of the organization's first production LLM deployments: a
+  RAG-enhanced pipeline for automated large-scale legacy code modernization,
+  with AWS validation infrastructure built from scratch. Learned early that
+  the hard part of production AI is not the model — it is making the outputs
+  reliably trustworthy enough that real engineering teams will stake their
+  work on them."
+
+- "Built a human feedback pipeline from zero prior background in six weeks —
+  preference schema design, reward signal modeling, and PPO integration. No
+  existing playbook, hard deadline. The system now processes human preference
+  comparisons daily and the framework has been adopted by multiple downstream
+  teams. Wrote the onboarding documentation that became the standard reference."
+
+- "Compressed a three-week embedding model selection process into three days
+  by identifying output quality as the only high-variance decision variable
+  and designing a targeted experiment around it. Selected an open-source
+  model over a vendor API based on pre-defined quality and dependency criteria.
+  The selection drove strong weekly active user adoption post-launch."
+
+TECH STACK TAGS:
+LangChain · Python · TypeScript · AWS Lambda · Aurora · Kinesis · RLHF
+pgvector · RAG · Step Functions
+
+--------------------------------------------------------------------------------
+ENTRY 3: Hult Prize Foundation (Jul 2021–Sep 2022)
+--------------------------------------------------------------------------------
+
+DATE/HEADER: "Jul 2021 — Sep 2022"
+COMPANY: "Hult Prize Foundation"
+ROLE TITLE: "Regional Associate · Accelerator Intern"
+
+DESCRIPTION:
+"Backend infrastructure engineering for a global social entrepreneurship
+platform — distributed systems at the edge of their load envelope, under
+real-time surge conditions."
+
+BULLET POINTS:
+- "Engineered a fault-tolerant distributed event system for a global competition
+  platform serving hundreds of thousands of participants. Designed for real-time
+  load surges and concurrent session handling. This was backend infrastructure
+  that had to work in conditions that testing only approximates — the gap between
+  controlled load testing and what users actually create at peak is a lesson I
+  carried into every production system I've built since."
+
+TECH STACK TAGS:
+Node.js · PostgreSQL · Distributed Systems · Concurrency
+
+--------------------------------------------------------------------------------
+ENTRY 4: IoTIoT.in (Jan 2021–May 2021)
+--------------------------------------------------------------------------------
+
+Keep mostly as-is. Minor title update only:
+
+ROLE TITLE: "AI Engineering Intern"
+
+No other changes needed for this entry.
+
+--------------------------------------------------------------------------------
+ENTRY 5: MediaPro Innovations (Jun 2020–Dec 2020)
+--------------------------------------------------------------------------------
+
+Keep mostly as-is. Minor title update only:
+
+ROLE TITLE: "Backend & ML Intern"
+
+No other changes needed for this entry.
+
+================================================================================
+TASK 5: PROJECTS SECTION — Rewrite top entries, reorder, deprioritize older ones
+================================================================================
+
+TARGET FILES: The data file or component containing project entries.
+
+REORDER the projects so that the top three are:
+  1. Citation-Grounded Knowledge Agent (currently first — keep at top)
+  2. Eval Pipeline Rebuild (NEW — add this as second)
+  3. Aarogya — Privacy-Preserving Mental Health Risk Detection (move to third)
+  4-7. Remaining older projects (keep but deprioritize — they stay at bottom)
+
+--------------------------------------------------------------------------------
+PROJECT 1: Citation-Grounded Knowledge Agent (rewrite)
+--------------------------------------------------------------------------------
+
+TITLE: "Citation-Grounded Knowledge Agent"
+
+DESCRIPTION (replaces existing one-liner):
+"A production-grade multi-step AI agent designed around a single constraint:
+every answer must be traceable back to source. Not as a nicety — as an
+architectural requirement enforced at the generation layer."
+
+BULLET POINTS:
+- "Built with LangGraph for stateful multi-step orchestration — nodes for
+  hybrid retrieval, cross-encoder reranking, citation-only generation, and
+  confidence-gated abstention. If the retrieval is not confident enough to
+  support a grounded answer, the system returns nothing rather than
+  extrapolating."
+
+- "Multi-model tiering routes each query to the cheapest model that clears
+  the quality bar — because inference cost compounds in production and should
+  be a first-class architectural concern, not an optimization left for later."
+
+- "Instrumented with LangSmith for run-level tracing and per-node debugging.
+  The architecture is intentionally close to how I would design this for a
+  regulated enterprise environment — because the constraints that exist in
+  regulated environments produce better systems generally."
+
+TECH STACK TAGS:
+LangGraph · LangChain · AWS Bedrock · Lambda · Step Functions · pgvector
+LangSmith · Python · TypeScript · React
+
+--------------------------------------------------------------------------------
+PROJECT 2: Eval Pipeline Rebuild (NEW — add this project)
+--------------------------------------------------------------------------------
+
+TITLE: "LLM Evaluation Framework — Production Rebuild"
+
+DESCRIPTION:
+"A production AI system can fail in a specific way that is hard to catch:
+the model improves on every metric the team tracks, ships to users, and is
+worse. This project documents the rebuild after that happened."
+
+BULLET POINTS:
+- "Root cause was evaluation design: most benchmark tasks were not correlated
+  with real user outcomes. The system looked right on paper. The signal was
+  wrong. Diagnosis required pulling production outcome signals and running
+  correlation analysis against every benchmark task — identifying which had
+  real predictive power and which were noise weighted equally alongside it."
+
+- "Rebuilt the scoring framework around outcome-aligned weighting and added
+  a mandatory human judgment gate at each release. Tracked eval-to-production
+  correlation as a meta-metric across subsequent release cycles to validate
+  the rebuild was working."
+
+- "The methodology was adopted as the organization-wide standard for LLM
+  model evaluation — not because it was mandated, but because every team
+  building LLM features eventually hits the same benchmark-vs-production
+  divergence problem. The framework solved it once and gave others a
+  reference to build from."
+
+TECH STACK TAGS:
+Python · LLM Evaluation · Outcome-Aligned Scoring · Statistical Analysis
+Correlation Analysis · Human Preference Gates
+
+NOTE FOR AGENT: This project does not have a linked URL. Leave the link
+field empty or point to a '#' placeholder. Do not add a fake URL.
+
+--------------------------------------------------------------------------------
+PROJECT 3: Aarogya (minor rewrite)
+--------------------------------------------------------------------------------
+
+TITLE: "Aarogya — Privacy-Preserving Mental Health Risk Detection"
+
+DESCRIPTION:
+"An NLP pipeline for early detection of depression and suicide-risk signals
+from social and clinical text — designed with privacy as a first-class
+architectural constraint, not an afterthought."
+
+BULLET POINTS:
+- "Combines behavioral indicators and structured questionnaire data through
+  a multi-signal pipeline. The hardest problem was not the model — it was
+  defining what a detection system that genuinely respects user dignity
+  looks like at the architecture level."
+
+- "Privacy constraints shaped every design decision: what data is retained,
+  how signals are aggregated, where the model boundary sits relative to
+  identifiable information. Building with adversarial privacy requirements
+  is good practice for any system that handles sensitive data at scale."
+
+TECH STACK TAGS:
+Python · NLP · Privacy-Preserving ML · AWS · Clinical NLP
+
+--------------------------------------------------------------------------------
+PROJECTS 4-7: No content changes needed.
+--------------------------------------------------------------------------------
+
+Keep the existing entries for:
+- Complaint Routing (text classification)
+- Sentiment-driven Summarization
+- Survey Masters Website
+- Deep Learning for Satellite Imaging
+- Question Paper Generator
+
+These do not need copy updates. They can remain as-is.
+
+================================================================================
+TASK 6: ADD NEW SECTION — Stack & Tools
+================================================================================
+
+TARGET FILES: /app/page.tsx or equivalent page composition file.
+This section does not currently exist. Add it after the Projects section
+and before the Research section.
+
+6.1 Add section with id="stack" to the page.
+    Add a navigation link "Stack" pointing to #stack.
+
+6.2 Section heading (same styling as other sections): "Stack & Tools"
+
+6.3 Content: Three labeled skill groups. Render each group as:
+    - Bold group label (e.g. "AI & Agent Systems")
+    - Tech tags using the same tag-pill class used in the experience section
+    - Small vertical gap between groups
+
+GROUP 1 — "AI & Agent Systems"
+Tags: LangGraph · LangChain · AWS Bedrock · RAG Pipeline Design
+      LLM Evaluation & Outcome-Aligned Scoring · RLHF & Preference Data
+      Confidence Routing & Abstention · Structured Output Enforcement
+      Embedding Model Evaluation · LangSmith · Multi-Step Agent Orchestration
+
+GROUP 2 — "Backend & Infrastructure"
+Tags: Python · TypeScript · Node.js · Java · SQL · REST APIs · GraphQL
+      AWS Lambda · Step Functions · API Gateway · Kinesis · DynamoDB
+      S3 · Aurora · Apache Kafka · Apache Flink · Terraform · Docker
+      GitHub Actions CI/CD · PostgreSQL · pgvector · Pinecone · Redis · MongoDB
+
+GROUP 3 — "Certifications"
+Tags: AWS Certified Machine Learning Specialty
+
+Implementation note: The tag-pill styling should match exactly what is used
+in the experience section tech stack row. Reuse the same component or class.
+
+================================================================================
+TASK 7: METADATA AND SEO — Update page title and description
+================================================================================
+
+TARGET FILES: /app/layout.tsx or wherever Next.js metadata is defined.
+
+7.1 UPDATE page <title>:
+    FROM: Whatever it currently is (likely "Hamza Abubakar Kheruwala" or
+          "Software Engineer")
+    TO:   "Hamza Abubakar Kheruwala — AI Systems Engineer"
+
+7.2 UPDATE meta description:
+    TO: "AI Systems Engineer specializing in production LLM agent systems,
+    evaluation infrastructure, and backend systems at scale. Building at
+    Morgan Stanley with LangGraph, LangChain, Python, and AWS."
+
+7.3 UPDATE Open Graph title if present:
+    TO: "Hamza Abubakar Kheruwala — AI Systems Engineer"
+
+7.4 UPDATE Open Graph description if present:
+    TO: "Production AI engineer. LangGraph agent systems, LLM evaluation
+    infrastructure, and backend systems that hold up under real production
+    conditions."
+
+================================================================================
+TASK 8: NAVIGATION — Add new nav items
+================================================================================
+
+TARGET FILES: The Navigation component file.
+
+8.1 ADD "Approach" nav link pointing to #approach (the new How I Build section).
+    Insert it between "About" and "Experience" in the nav order.
+
+8.2 ADD "Stack" nav link pointing to #stack (the new Stack section).
+    Insert it between "Projects" and "Research" in the nav order.
+
+Final nav order should be:
+  About → Approach → Experience → Projects → Stack → Research → Education
+
+================================================================================
+TASK 9: VERIFY ALL CHANGES
+================================================================================
+
+After completing all edits:
+
+9.1 Run the development server (npm run dev or equivalent) and visually verify:
+    - Hero H1, H2, tagline, sub-headline render correctly
+    - About section has three full paragraphs, no leftover old content
+    - "How I Build" section appears between About and Experience with all four blocks
+    - All five experience entries have updated titles and correct bullet points
+    - Projects section shows Citation-Grounded first, Eval Pipeline second,
+      Aarogya third
+    - Stack section appears with three groups and correct tag pills
+    - Navigation includes Approach and Stack links and they scroll to the
+      correct sections
+    - No broken links, no empty sections, no missing tag pills
+
+9.2 Confirm the new Eval Pipeline project card does not have a broken URL.
+    If the project data structure requires a URL, set it to "#" or null.
+
+9.3 Confirm page title and meta description have been updated by inspecting
+    the document head.
+
+9.4 Check that no numbers or specific metrics appear anywhere in the new copy.
+    The portfolio is a narrative document — exact figures belong on the resume.
+
+================================================================================
+QUICK CONTENT REFERENCE — E5 SIGNAL PHRASES
+================================================================================
+
+These phrases and framings must appear naturally throughout the content.
+Check that at least 5 of the following are represented across the final site:
+
+✓ "Technical owner" / "owns the technical decisions"
+✓ "Became the standard" / "adopted as the standard"
+✓ "Teams building after me" / "teams who came after"
+✓ "Defined how the team evaluates" / "org-wide standard"
+✓ "Three downstream teams adopted" / "reusable baseline"
+✓ "Built from zero prior background" (agency signal — RLHF story)
+✓ "Multiplier" / "leverage beyond the original deployment"
+✓ "Co-architect with enterprise engineering teams"
+✓ "What I learn in production becomes the pattern the next team builds on"
+✓ "Designed for a specific constraint" (deliberate architecture, not accidental)
+✓ "Zero compliance incidents" (implicit in copy, but no explicit number)
+✓ "Institutionalized across all enterprise accounts" (structural impact)
+
+FRAMING TO AVOID (too junior, remove if found):
+✗ "Helped build" / "assisted with" / "contributed to"
+✗ "I was part of the team that"
+✗ "I learned how to"
+✗ "I tried to" / "I attempted to"
+✗ "My role was to"
+✗ "I was responsible for implementing"
+
+================================================================================
+END OF TASK BRIEF
+portfolio_update_agent_tasks.txt
+================================================================================

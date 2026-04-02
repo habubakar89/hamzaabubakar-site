@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   title: siteData.meta.title,
   description: siteData.meta.description,
   openGraph: {
-    title: siteData.meta.title,
-    description: siteData.meta.description,
+    title: siteData.meta.ogTitle ?? siteData.meta.title,
+    description: siteData.meta.ogDescription ?? siteData.meta.description,
     url: siteData.meta.url,
     siteName: siteData.meta.siteName,
     images: siteData.meta.ogImage
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: siteData.meta.title,
-    description: siteData.meta.description,
+    title: siteData.meta.ogTitle ?? siteData.meta.title,
+    description: siteData.meta.ogDescription ?? siteData.meta.description,
     images: siteData.meta.ogImage ? [siteData.meta.ogImage] : [],
   },
   robots: {

@@ -28,6 +28,7 @@ export type ProjectItem = {
   name: string;
   href: string;
   description: string;
+  bullets?: string[];
   tags: Tag[];
   image?: {
     src: string;
@@ -56,11 +57,25 @@ export type EducationItem = {
   location: string;
 };
 
+export type ApproachBlock = {
+  id: string;
+  title: string;
+  paragraph: string;
+};
+
+export type StackGroup = {
+  id: string;
+  label: string;
+  tags: Tag[];
+};
+
 export type SiteData = {
   meta: {
     siteName: string;
     title: string;
     description: string;
+    ogTitle?: string;
+    ogDescription?: string;
     ogImage?: string;
     url?: string;
   };
@@ -69,6 +84,7 @@ export type SiteData = {
     name: string;
     role: string;
     tagline: string;
+    subTagline?: string;
   };
 
   about: {
@@ -77,12 +93,16 @@ export type SiteData = {
 
   nav: {
     items: {
-      label: "About" | "Experience" | "Projects" | "Research" | "Education";
-      href: "#about" | "#experience" | "#projects" | "#research" | "#education";
+      label: string;
+      href: string;
     }[];
   };
 
   social: Social[];
+
+  approach: {
+    blocks: ApproachBlock[];
+  };
 
   experience: {
     resumeHref: string;
@@ -91,6 +111,10 @@ export type SiteData = {
 
   projects: {
     items: ProjectItem[];
+  };
+
+  stack: {
+    groups: StackGroup[];
   };
 
   research: {
@@ -113,25 +137,32 @@ export type SiteData = {
 export const siteData: SiteData = {
   meta: {
     siteName: "Hamza Abubakar Kheruwala",
-    title: "Hamza Abubakar Kheruwala - Software Engineer",
+    title: "Hamza Abubakar Kheruwala — AI Systems Engineer",
     description:
-      "Software Engineer at Morgan Stanley specializing in GenAI, real-time fraud detection, and scalable data systems. AWS ML Certified researcher.",
+      "AI Systems Engineer specializing in production LLM agent systems, evaluation infrastructure, and backend systems at scale. Building at Morgan Stanley with LangGraph, LangChain, Python, and AWS.",
+    ogTitle: "Hamza Abubakar Kheruwala — AI Systems Engineer",
+    ogDescription:
+      "Production AI engineer. LangGraph agent systems, LLM evaluation infrastructure, and backend systems that hold up under real production conditions.",
     ogImage: "/og.png",
     url: "https://www.hamzaabubakar.com",
   },
 
   hero: {
     name: "Hamza Abubakar Kheruwala",
-    role: "Software Engineer",
+    role: "AI Systems Engineer",
     tagline:
-      "I build systems that scale—and still behave on a Monday morning.",
+      "I architect production AI systems that hold up under the conditions real users create — not just in the test harness.",
+    subTagline:
+      "What I learn in production becomes the pattern the next team builds on.",
   },
 
   nav: {
     items: [
       { label: "About", href: "#about" },
+      { label: "Approach", href: "#approach" },
       { label: "Experience", href: "#experience" },
       { label: "Projects", href: "#projects" },
+      { label: "Stack", href: "#stack" },
       { label: "Research", href: "#research" },
       { label: "Education", href: "#education" },
     ],
@@ -150,9 +181,38 @@ export const siteData: SiteData = {
 
   about: {
     paragraphs: [
-      "I'm Hamza — the kind of person who's happiest with a hard problem, a clean plan, and a strong cup of coffee (or two).",
-      "I'm big on consistency: you'll usually find me in the gym, writing something I'll over-edit later, or planning the next trip. I like hikes that make you earn the view and challenges that make you earn the outcome.",
-      "I keep things simple: show up, do the work, keep improving. If it ships, scales, and still sleeps at night — that's a good day.",
+      "I'm an AI systems engineer at Morgan Stanley, owning the architecture of production LLM agent systems in a regulated environment. The core constraint: a confident wrong answer is worse than no answer. Every technical decision flows from that.",
+      "Most of what I know came from things that failed instructively. I shipped a model that beat every benchmark and degraded for real users. Diagnosing that — and rebuilding the evaluation framework around it — changed how I think about what it means for a system to actually be good. That framework became the org-wide standard.",
+      "I care most about systems that outlast the original deployment — documented clearly enough that teams I've never worked with can build on them. Three of the AI systems I've built are being used that way now.",
+    ],
+  },
+
+  approach: {
+    blocks: [
+      {
+        id: "approach-1",
+        title: "Evaluation is an architecture problem, not a QA step.",
+        paragraph:
+          "I decide what to measure before writing a line of code. A benchmark that doesn't correlate with real user outcomes isn't a safety net — it's a false one.",
+      },
+      {
+        id: "approach-2",
+        title: "Confident wrong answers are worse than no answer.",
+        paragraph:
+          "In regulated environments, routing to a human beats returning a low-confidence response. I've built confidence-gated routing as a deliberate first-class decision, calibrated against production data — not bolted on as a fallback.",
+      },
+      {
+        id: "approach-3",
+        title: "Backend reliability is what makes AI systems trustworthy.",
+        paragraph:
+          "The LLM is usually the easiest part to swap. What determines whether users can actually rely on the system is everything around it — pipelines, observability, retrieval, output enforcement.",
+      },
+      {
+        id: "approach-4",
+        title: "Every system should outlast the original deployment.",
+        paragraph:
+          "I document failure modes after every production build — not just the architecture, but the specific places where the design breaks. That's what makes a system reusable rather than a one-off.",
+      },
     ],
   },
 
@@ -162,91 +222,86 @@ export const siteData: SiteData = {
       {
         id: "exp-1",
         dateRange: "Nov 2023 — Present",
-        title: "Software Engineer II",
+        title: "Senior Software Engineer II — AI Systems & Infrastructure",
         company: "Morgan Stanley",
         companyHref: "https://www.morganstanley.com",
         summary:
-          "Leading development of real-time fraud detection and behavioral analytics systems with patent-pending technology.",
+          "Technical owner of production LLM agent systems in a regulated financial environment — orchestration architecture, evaluation infrastructure, and the patterns other teams build on.",
         bullets: [
-          "Designed and built a holistic behavior analysis engine that correlates user activity across platforms to identify and contextualize fraudulent patterns in real-time.",
-          "Architected streaming pipelines using Kafka and Apache Flink for low-latency risk evaluation and fraud signal processing at scale.",
-          "Leveraged RAG systems to surface historical risk signals and behavioral context, enabling faster triage and more accurate fraud classification.",
-          "Built a scalable savings platform for high-value client profiling using Terraform-based infrastructure and targeted data orchestration.",
+          "Designed a multi-step agent with confidence-gated routing: uncertain outputs route to a human analyst rather than returning a low-confidence answer. Zero compliance incidents.",
+          "Rebuilt the org's LLM evaluation framework after shipping a model that beat every benchmark and degraded for real users. Rebuilt scoring around production outcome signals — now the standard for every model release.",
+          "The RAG architecture I built has been adopted as the baseline by three downstream teams, packaged with failure modes so they didn't have to start from scratch.",
+          "Co-architect with enterprise engineering teams when delivery is broken. The structural fix from one recovery was institutionalized across all enterprise accounts.",
         ],
         tags: [
-          "Kafka",
-          "Apache Flink",
-          "RAG",
-          "AWS",
-          "Terraform",
+          "LangGraph",
           "Python",
-          "Fraud Detection",
+          "AWS Bedrock",
+          "Kafka",
+          "Terraform",
         ],
       },
       {
         id: "exp-2",
         dateRange: "Feb 2023 — Nov 2023",
-        title: "Software Engineer I",
+        title: "Software Engineer I — AI Systems & Automation",
         company: "Morgan Stanley",
         companyHref: "https://www.morganstanley.com",
         summary:
-          "Automated legacy code modernization using RAG-enhanced LLMs and built real-time data reporting infrastructure.",
+          "Shipped the org's earliest production LLM deployments. Built the foundational infrastructure — pipelines, evaluation tooling, human feedback systems — that became the reference for teams that followed.",
         bullets: [
-          "Developed an automated code translation system using RAG-enhanced LLMs to modernize legacy codebases, eliminating manual translation efforts across hundreds of programs.",
-          "Engineered validation pipelines with AWS Lambda for orchestration and Aurora for state tracking, dramatically accelerating the modernization workflow.",
-          "Delivered real-time data reporting via AWS Kinesis, enabling leadership to make faster, data-driven decisions.",
+          "Led one of the org's first production LLM deployments: a RAG-enhanced pipeline for legacy code modernization with validation infrastructure built from scratch.",
+          "Built a human feedback pipeline from zero prior background in six weeks — preference schema, reward modeling, PPO integration. Adopted by multiple downstream teams; wrote the onboarding doc that became the standard reference.",
+          "Cut a three-week model selection process to three days by identifying the one decision variable that mattered and designing a targeted experiment around it.",
         ],
         tags: [
-          "RAG",
-          "LLMs",
-          "AWS Lambda",
-          "Aurora",
-          "Kinesis",
+          "LangChain",
           "Python",
-          "TypeScript",
+          "AWS Lambda",
+          "RLHF",
+          "RAG",
         ],
       },
       {
         id: "exp-3",
         dateRange: "Jul 2021 — Sep 2022",
-        title: "Regional Associate & Accelerator Intern",
+        title: "Regional Associate · Accelerator Intern",
         company: "Hult Prize Foundation",
         companyHref: "https://www.hultprize.org",
         summary:
-          "Built distributed systems powering global social entrepreneurship competitions with tens of thousands of participants.",
+          "Backend infrastructure for a global competition platform — distributed systems under real surge conditions.",
         bullets: [
-          "Engineered a distributed, fault-tolerant voting system designed to handle real-time user surges during live competition events.",
-          "Optimized concurrent request processing and streamlined backend workflows to support smooth operations during peak load periods.",
+          "Engineered a fault-tolerant distributed event system for real-time load surges. The gap between load testing and what users actually create at peak is a lesson I've carried into every production system since.",
         ],
-        tags: ["Distributed Systems", "Concurrency", "Node.js", "PostgreSQL"],
+        tags: ["Node.js", "PostgreSQL", "Distributed Systems"],
       },
       {
         id: "exp-4",
         dateRange: "Jan 2021 — May 2021",
-        title: "Artificial Intelligence Intern",
+        title: "AI Engineering Intern",
         company: "IoTIoT.in",
         companyHref: "https://iotiot.in",
         summary:
-          "Built a real-time, device-agnostic gesture recognition framework using ML-driven motion tracking and signal processing.",
+          "Built a real-time, device-agnostic gesture recognition framework using ML-driven motion tracking.",
         bullets: [
-          "Developed advanced motion tracking and signal processing algorithms to improve input reliability across diverse hardware.",
-          "Engineered parallelized model training pipelines to reduce latency while maintaining high accuracy for gesture classification.",
+          "Developed motion tracking algorithms to improve input reliability across diverse hardware.",
+          "Built parallelized training pipelines to reduce latency without sacrificing classification accuracy.",
         ],
-        tags: ["Machine Learning", "Signal Processing", "Python", "TensorFlow"],
+        tags: ["Python", "TensorFlow", "Signal Processing"],
       },
       {
         id: "exp-5",
         dateRange: "Jun 2020 — Dec 2020",
-        title: "Software Development Intern",
+        title: "Backend & ML Intern",
         company: "MediaPro Innovations",
         companyHref: "https://mediapro.in",
         summary:
-          "Applied user behavior analysis and ML-driven content filtering to improve engagement on an ed-tech platform.",
+          "Applied ML-driven content filtering and behavior analysis to improve engagement on an ed-tech platform.",
         bullets: [
-          "Implemented ML-driven content filtering based on user behavior patterns to surface more relevant learning materials.",
-          "Improved backend efficiency through strategic caching and database indexing, supporting a growing active user base with fewer defects.",
+          "Built content filtering on user behavior patterns to surface more relevant learning materials.",
+          "Improved backend efficiency through caching and indexing, supporting a growing user base.",
         ],
-        tags: ["Python", "Machine Learning", "Backend", "Caching"],
+        tags: ["Python", "Machine Learning", "Backend"],
       },
     ],
   },
@@ -255,19 +310,45 @@ export const siteData: SiteData = {
     items: [
       {
         id: "proj-1",
-        name: "Citation-Grounded Knowledge Platform",
+        name: "Citation-Grounded Knowledge Agent",
         href: "https://github.com/habubakar89",
         description:
-          "Citation-first Q&A with multi-stage retrieval + reranking and strict answer gating—no source, no answer—deployed on AWS with audit-ready traces.",
-        tags: ["RAG", "LangGraph", "AWS Bedrock", "Lambda", "Step Functions"],
+          "A multi-step AI agent built around one constraint: every answer must trace back to source — enforced at the generation layer, not bolted on after.",
+        bullets: [
+          "Confidence-gated abstention: if retrieval isn't confident enough to support a grounded answer, the system returns nothing rather than extrapolating.",
+          "Multi-model tiering routes each query to the cheapest model that clears the quality bar — inference cost as a first-class concern from day one.",
+        ],
+        tags: [
+          "LangGraph",
+          "AWS Bedrock",
+          "pgvector",
+          "LangSmith",
+          "Python",
+        ],
+      },
+      {
+        id: "proj-new",
+        name: "LLM Evaluation Framework — Production Rebuild",
+        href: "#",
+        description:
+          "A model can improve on every tracked metric, ship to users, and be worse. This is what I built after that happened — a rebuild of how evaluation actually works.",
+        bullets: [
+          "Pulled production outcome signals and ran correlation analysis against every benchmark task. Rebuilt scoring around what actually predicted user outcomes, with a mandatory human judgment gate at each release.",
+          "Adopted org-wide — not because it was mandated, but because every team building LLM features eventually hits the same benchmark-vs-production divergence. The framework solved it once.",
+        ],
+        tags: [
+          "Python",
+          "LLM Evaluation",
+          "Statistical Analysis",
+        ],
       },
       {
         id: "proj-2",
         name: "Aarogya — Privacy-Preserving Mental Health Risk Detection",
         href: "https://github.com/habubakar89",
         description:
-          "Privacy-preserving NLP pipeline for early depression and suicide-risk signals, combining social indicators and clinical questionnaires with a deployment-ready workflow.",
-        tags: ["NLP", "Privacy", "Machine Learning", "AWS", "Python"],
+          "An NLP pipeline for early detection of depression and suicide-risk signals — privacy as an architectural constraint, not a compliance checkbox. The hardest problem was defining what a detection system that respects user dignity looks like at the architecture level.",
+        tags: ["Python", "NLP", "Privacy-Preserving ML", "AWS"],
       },
       {
         id: "proj-3",
@@ -308,6 +389,63 @@ export const siteData: SiteData = {
         description:
           "Built a web-based application concept for generating structured question papers with configurable templates and sections.",
         tags: ["Web", "Automation", "Product Design"],
+      },
+    ],
+  },
+
+  stack: {
+    groups: [
+      {
+        id: "stack-ai",
+        label: "AI & Agent Systems",
+        tags: [
+          "LangGraph",
+          "LangChain",
+          "AWS Bedrock",
+          "RAG Pipeline Design",
+          "LLM Evaluation & Outcome-Aligned Scoring",
+          "RLHF & Preference Data",
+          "Confidence Routing & Abstention",
+          "Structured Output Enforcement",
+          "Embedding Model Evaluation",
+          "LangSmith",
+          "Multi-Step Agent Orchestration",
+        ],
+      },
+      {
+        id: "stack-backend",
+        label: "Backend & Infrastructure",
+        tags: [
+          "Python",
+          "TypeScript",
+          "Node.js",
+          "Java",
+          "SQL",
+          "REST APIs",
+          "GraphQL",
+          "AWS Lambda",
+          "Step Functions",
+          "API Gateway",
+          "Kinesis",
+          "DynamoDB",
+          "S3",
+          "Aurora",
+          "Apache Kafka",
+          "Apache Flink",
+          "Terraform",
+          "Docker",
+          "GitHub Actions CI/CD",
+          "PostgreSQL",
+          "pgvector",
+          "Pinecone",
+          "Redis",
+          "MongoDB",
+        ],
+      },
+      {
+        id: "stack-certs",
+        label: "Certifications",
+        tags: ["AWS Certified Machine Learning Specialty"],
       },
     ],
   },

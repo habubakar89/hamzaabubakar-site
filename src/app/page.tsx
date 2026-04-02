@@ -2,8 +2,10 @@ import { siteData } from "@/data/site";
 import {
   Header,
   AboutSection,
+  ApproachSection,
   ExperienceSection,
   ProjectsSection,
+  StackSection,
   ResearchSection,
   EducationSection,
   Footer,
@@ -27,6 +29,7 @@ export default function Home() {
             name={siteData.hero.name}
             role={siteData.hero.role}
             tagline={siteData.hero.tagline}
+            subTagline={siteData.hero.subTagline}
             navItems={siteData.nav.items}
             socialLinks={siteData.social}
           />
@@ -35,12 +38,16 @@ export default function Home() {
           <main id="content" className="pt-24 lg:w-1/2 lg:py-24">
             <AboutSection paragraphs={siteData.about.paragraphs} />
 
+            <ApproachSection blocks={siteData.approach.blocks} />
+
             <ExperienceSection
               items={siteData.experience.items}
               resumeHref={siteData.experience.resumeHref}
             />
 
             <ProjectsSection items={siteData.projects.items} />
+
+            <StackSection groups={siteData.stack.groups} />
 
             <ResearchSection items={siteData.research.items} />
 
